@@ -196,7 +196,7 @@ static void usbEventCallback(void* arg, esp_event_base_t event_base, int32_t eve
 void setup() {
   HWSerial.begin(115200);
   HWSerial.setDebugOutput(true);
-  if (!SD.begin(SS)) {
+  while (!SD.begin(SS)) {
     HWSerial.println("Card Mount Failed");
   }
 

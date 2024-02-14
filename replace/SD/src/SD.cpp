@@ -129,5 +129,14 @@ bool SDFS::writeRAW(uint8_t* buffer, uint32_t sector)
     return sd_write_raw(_pdrv, buffer, sector);
 }
 
+bool SDFS::readRAW(uint8_t* buffer, uint32_t sector, uint32_t number)
+{
+    return sd_read_raw(_pdrv, buffer, sector, number);
+}
+
+bool SDFS::writeRAW(uint8_t* buffer, uint32_t sector, uint32_t number)
+{
+    return sd_write_raw(_pdrv, buffer, sector, number);
+}
 
 SDFS SD = SDFS(FSImplPtr(new VFSImpl()));
